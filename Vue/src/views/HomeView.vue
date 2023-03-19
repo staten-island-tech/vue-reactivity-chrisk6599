@@ -11,9 +11,8 @@ export default {
     ArrayList,
   },
   methods: {
-    add: function () {
-      this.total.push(this.item);
-      console.log(this);
+    add: function (item) {
+      this.total.push(item);
       console.log(this.total);
     },
     // hi: function () {
@@ -23,38 +22,12 @@ export default {
     //   console.log("bye");
     // },
   },
-  data() {
-    return {
-      items: [
-        {
-          name: "Rock1",
-          image:
-            "https://media.istockphoto.com/id/1159941628/photo/light-yellow-brown-stone-on-a-white-background.jpg?s=612x612&w=0&k=20&c=Bz9NI4dMHiJuAZK2F8zLWLS-przi4N27eQXRcq-0YF0=",
-          price: 12,
-        },
-        {
-          name: "Rock2",
-          image:
-            "https://media.istockphoto.com/id/1159941628/photo/light-yellow-brown-stone-on-a-white-background.jpg?s=612x612&w=0&k=20&c=Bz9NI4dMHiJuAZK2F8zLWLS-przi4N27eQXRcq-0YF0=",
-          price: 13,
-        },
-      ],
-      total: [],
-    };
-  },
 };
 </script>
 
 <template>
   <div class="home">
-    <!-- <ArrayList> -->
-    <div v-for="item in items" class="test">
-      <p>{{ item.name }}</p>
-      <img v-bind:src="item.image" />
-      <p>${{ item.price }}</p>
-      <Button @button-click="add">Test</Button>
-    </div>
-    <!-- </ArrayList> -->
+    <ArrayList></ArrayList>
     <!-- <Button @button-click="bye">Button One</Button>
     <Button @button-click="hi">Button Two</Button>
     <Card
@@ -65,9 +38,4 @@ export default {
   </div>
 </template>
 
-<style>
-.test {
-  background-color: red;
-  margin-top: 2rem;
-}
-</style>
+<style></style>
