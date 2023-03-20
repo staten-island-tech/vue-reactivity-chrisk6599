@@ -8,8 +8,18 @@
 </template>
 
 <script>
+import Button from "./Button.vue";
 export default {
   name: "ArrayList",
+  components: {
+    Button,
+  },
+  methods: {
+    add: function (item) {
+      this.total.push(item);
+      console.log(this.total);
+    },
+  },
   data() {
     return {
       items: [

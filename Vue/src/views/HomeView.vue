@@ -1,32 +1,37 @@
 <script>
-import Button from "../components/Button.vue";
 // import Card from "../components/Card.vue";
+import Button from "../components/Button.vue";
 import ArrayList from "../components/ArrayList.vue";
 
 export default {
   name: "home",
   components: {
-    Button,
     // Card,
+    Button,
     ArrayList,
   },
+  // hi: function () {
+  //   console.log("hi");
+  // },
+  // bye: function () {
+  //   console.log("bye");
+  // },
   methods: {
-    add: function (item) {
-      this.total.push(item);
-      console.log(this.total);
+    display: function () {
+      document
+        .querySelector(".outputButton")
+        .addEventListener("click", function () {
+          console.log(Object.entries(ArrayList));
+        });
     },
-    // hi: function () {
-    //   console.log("hi");
-    // },
-    // bye: function () {
-    //   console.log("bye");
-    // },
   },
 };
 </script>
 
 <template>
   <div class="home">
+    <Button @click="display()" class="outputButton">Shopping Cart</Button>
+    <div class="output"></div>
     <ArrayList></ArrayList>
     <!-- <Button @button-click="bye">Button One</Button>
     <Button @button-click="hi">Button Two</Button>
