@@ -17,6 +17,7 @@ export default {
   methods: {
     add: function (item) {
       this.total.push(item);
+      console.log(this);
       console.log(this.total);
     },
   },

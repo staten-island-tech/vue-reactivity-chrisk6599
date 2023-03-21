@@ -21,7 +21,7 @@ export default {
       document
         .querySelector(".outputButton")
         .addEventListener("click", function () {
-          console.log(Object.entries(ArrayList));
+          document.querySelector(".output").innerHTML = ArrayList.data;
         });
     },
   },
@@ -32,7 +32,7 @@ export default {
   <div class="home">
     <Button @click="display()" class="outputButton">Shopping Cart</Button>
     <div class="output"></div>
-    <ArrayList></ArrayList>
+    <ArrayList> </ArrayList>
     <!-- <Button @button-click="bye">Button One</Button>
     <Button @button-click="hi">Button Two</Button>
     <Card
