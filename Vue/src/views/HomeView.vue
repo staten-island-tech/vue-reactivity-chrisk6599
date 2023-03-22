@@ -1,12 +1,12 @@
 <script>
-// import Card from "../components/Card.vue";
+import Card from "../components/Card.vue";
 import Button from "../components/Button.vue";
 import ArrayList from "../components/ArrayList.vue";
 
 export default {
   name: "home",
   components: {
-    // Card,
+    Card,
     Button,
     ArrayList,
   },
@@ -30,16 +30,16 @@ export default {
 
 <template>
   <div class="home">
-    <Button @click="display()" class="outputButton">Shopping Cart</Button>
-    <div class="output"></div>
-    <ArrayList> </ArrayList>
-    <!-- <Button @button-click="bye">Button One</Button>
-    <Button @button-click="hi">Button Two</Button>
-    <Card
-      title="Hello"
+    <!-- <Card
+      title="ArrayList"
       description="Hi"
       image="https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png"
     ></Card> -->
+    <Button @click="display()" class="outputButton">Shopping Cart</Button>
+    <div class="output"></div>
+    <ArrayList></ArrayList>
+    <!-- <Button @button-click="bye">Button One</Button>
+    <Button @button-click="hi">Button Two</Button>-->
   </div>
 </template>
 
