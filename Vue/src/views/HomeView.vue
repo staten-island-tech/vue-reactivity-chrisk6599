@@ -16,15 +16,7 @@ export default {
   // bye: function () {
   //   console.log("bye");
   // },
-  methods: {
-    display: function () {
-      document
-        .querySelector(".outputButton")
-        .addEventListener("click", function () {
-          document.querySelector(".output").innerHTML = ArrayList.data;
-        });
-    },
-  },
+  methods: {},
 };
 </script>
 
@@ -35,8 +27,6 @@ export default {
       description="Hi"
       image="https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png"
     ></Card> -->
-    <Button @click="display()" class="outputButton">Shopping Cart</Button>
-    <div class="output"></div>
     <ArrayList></ArrayList>
     <!-- <Button @button-click="bye">Button One</Button>
     <Button @button-click="hi">Button Two</Button>-->
