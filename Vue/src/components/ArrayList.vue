@@ -1,6 +1,14 @@
 <template>
   <Button @click="display()">Click</Button>
-  <div class="output" v-for="item in items"></div>
+  <div id="bigDiv">
+    <div class="output" v-for="cartItems in shoppingCart">
+      <p>{{ cartItems.count }}</p>
+      <p>{{ cartItems.name }}</p>
+      <img v-bind:src="cartItems.image" class="cool" />
+      <p>{{ cartItems.price }}</p>
+    </div>
+  </div>
+
   <div v-for="item in items" class="test">
     <p>{{ item.name }}</p>
     <img v-bind:src="item.image" />
@@ -18,28 +26,22 @@ export default {
   },
   methods: {
     add: function (item) {
-      this.items.forEach(function (element) {
-        while (element.name == item.name) {
-          element.count++;
-          console.log("Added");
-          break;
+      item.count++;
+      let toBeAdded = true;
+      this.shoppingCart.forEach(function (element) {
+        if (element.name === item.name) {
+          toBeAdded = false;
         }
       });
-      console.log(item);
+      if (toBeAdded) {
+        this.shoppingCart.push(item);
+      }
     },
-    display: function () {
-      document.querySelector(".output").insertAdjacentHTML(
-        "beforeend",
-        `    
-    <p>{{ item.count }}</p>
-    <p>{{ item.name }}</p>
-    <img v-bind:src="item.image" class="cool" />
-    <p>{{ item.price }}</p>`
-      );
-    },
+    display: function () {},
   },
   data() {
     return {
+      visibility: true,
       items: [
         {
           name: "Rock1",
@@ -56,6 +58,7 @@ export default {
           count: 0,
         },
       ],
+      shoppingCart: [],
     };
   },
 };

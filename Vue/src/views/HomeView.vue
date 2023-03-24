@@ -28,8 +28,6 @@ export default {
       image="https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png"
     ></Card> -->
     <ArrayList></ArrayList>
-    <!-- <Button @button-click="bye">Button One</Button>
-    <Button @button-click="hi">Button Two</Button>-->
   </div>
 </template>
 
