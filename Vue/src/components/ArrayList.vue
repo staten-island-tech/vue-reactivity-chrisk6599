@@ -1,11 +1,13 @@
 <template>
   <Button @click="display()">Click</Button>
-  <div id="bigDiv">
+  <div id="bigDiv" style="display: none">
     <div class="output" v-for="cartItems in shoppingCart">
-      <p>{{ cartItems.count }}</p>
       <p>{{ cartItems.name }}</p>
+      <p>${{ cartItems.price }}</p>
+      <p>Quantity: {{ cartItems.count }}</p>
+      <p>Total: ${{ cartItems.count * cartItems.price }}</p>
       <img v-bind:src="cartItems.image" class="cool" />
-      <p>{{ cartItems.price }}</p>
+      <h2>Order Summary:</h2>
     </div>
   </div>
 
@@ -34,11 +36,20 @@ export default {
         this.shoppingCart.push(item);
       }
     },
-    display: function () {},
+
+    display: function () {
+      if (this.visibility == true) {
+        document.getElementById("bigDiv").style.display = "none";
+        this.visibility = false;
+      } else {
+        document.getElementById("bigDiv").style.display = "block";
+        this.visibility = true;
+      }
+    },
   },
   data() {
     return {
-      visibility: true,
+      visibility: false,
       items: [
         {
           name: "Rock1",
