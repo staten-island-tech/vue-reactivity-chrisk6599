@@ -27,13 +27,10 @@ export default {
   methods: {
     add: function (item) {
       item.count++;
-      let toBeAdded = true;
-      this.shoppingCart.forEach(function (element) {
-        if (element.name === item.name) {
-          toBeAdded = false;
-        }
-      });
-      if (toBeAdded) {
+      let matched = this.shoppingCart.filter(
+        (element) => element.name === item.name
+      );
+      if (matched.length == 0) {
         this.shoppingCart.push(item);
       }
     },
