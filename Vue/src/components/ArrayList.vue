@@ -9,6 +9,7 @@
         <p>Total: ${{ cartItems.total }}</p>
         <img v-bind:src="cartItems.image" class="cool" />
       </div>
+      <div>{{ totalCalculation() }}</div>
     </div>
 
     <div v-for="item in items" class="test">
@@ -49,6 +50,15 @@ export default {
         this.visibility = true;
       }
     },
+
+    totalCalculation: function () {
+      for (let i = 0; i < this.items.length; i++) {
+        this.finalTotal = this.finalTotal + this.items[i].total;
+        console.log(this.items[i].total);
+        console.log(this.finalTotal);
+      }
+      return this.finalTotal;
+    },
   },
   data() {
     return {
@@ -72,6 +82,7 @@ export default {
         },
       ],
       shoppingCart: [],
+      finalTotal: 0,
     };
   },
 };
