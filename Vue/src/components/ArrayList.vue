@@ -9,13 +9,14 @@
         <p>Total: ${{ cartItems.total }}</p>
         <img v-bind:src="cartItems.image" class="cool" />
       </div>
-      <div>{{ totalCalculation() }}</div>
+      <div>Total: ${{ finalTotal }}</div>
     </div>
 
-    <div v-for="item in items" class="test">
+    <div v-for="(item, index) in items" class="test">
       <p>{{ item.name }}</p>
       <img v-bind:src="item.image" />
       <p>${{ item.price }}</p>
+      <input type="text" :class="classCreation(index)" />
       <Button @click="add(item)">Test</Button>
     </div>
   </div>
@@ -32,6 +33,8 @@ export default {
     add: function (item) {
       item.count++;
       item.total = item.total + item.price;
+      this.finalTotal = this.finalTotal + item.price;
+      console.log(this.finalTotal);
 
       let matched = this.shoppingCart.filter(
         (element) => element.name === item.name
@@ -51,13 +54,12 @@ export default {
       }
     },
 
-    totalCalculation: function () {
-      for (let i = 0; i < this.items.length; i++) {
-        this.finalTotal = this.finalTotal + this.items[i].total;
-        console.log(this.items[i].total);
-        console.log(this.finalTotal);
-      }
-      return this.finalTotal;
+    classCreation(index) {
+      let uniqueClass = `quantityItems${index}`;
+      console.log(uniqueClass);
+      return {
+        uniqueClass,
+      };
     },
   },
   data() {
