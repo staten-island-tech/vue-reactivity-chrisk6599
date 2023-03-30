@@ -55,11 +55,7 @@ export default {
     },
 
     classCreation(index) {
-      let uniqueClass = `quantityItems${index}`;
-      console.log(uniqueClass);
-      return {
-        uniqueClass,
-      };
+      return `quantityItems${index}`;
     },
   },
   data() {
