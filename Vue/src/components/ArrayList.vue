@@ -17,14 +17,14 @@
       <p>{{ item.name }}</p>
       <img v-bind:src="item.image" />
       <p>${{ item.price }}</p>
-      <Button @click="subtract(item)">-</Button>
+      <Button @click="decrease(item)">-</Button>
       <input
         type="text"
         :class="classCreation(index)"
         v-bind:value="item.count"
         readonly
       />
-      <Button @click="add(item)">+</Button>
+      <Button @click="increase(item)">+</Button>
       <Button @click="addToCart(item, index)">Add to Cart</Button>
     </div>
   </div>
@@ -41,6 +41,7 @@ export default {
     addToCart: function (item, index) {
       let testing = `.quantityItems${index}`;
       item.count = item.count + Number(document.querySelector(testing).value);
+
       document.querySelector(testing).value = 0;
     },
 
@@ -50,7 +51,7 @@ export default {
       }
     },
 
-    add: function (item) {
+    increase: function (item) {
       item.count++;
       item.total = item.total + item.price;
       this.finalTotal = this.finalTotal + item.price;
@@ -63,7 +64,7 @@ export default {
       }
     },
 
-    subtract: function (item) {
+    decrease: function (item) {
       let matched = this.shoppingCart.filter(
         (element) => element.name === item.name
       );
@@ -131,7 +132,6 @@ export default {
   width: 100px;
 }
 .test {
-  background-color: red;
   margin-top: 2rem;
 }
 </style>

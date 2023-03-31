@@ -12,6 +12,5 @@ export default {
 button {
   width: 200px;
   font-size: 20px;
-  background-color: red;
 }
 </style>
