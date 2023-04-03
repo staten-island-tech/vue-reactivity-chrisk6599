@@ -1,12 +1,10 @@
 <script>
-import Card from "../components/Card.vue";
 import Button from "../components/Button.vue";
 import ArrayList from "../components/ArrayList.vue";
 
 export default {
   name: "home",
   components: {
-    Card,
     Button,
     ArrayList,
   },

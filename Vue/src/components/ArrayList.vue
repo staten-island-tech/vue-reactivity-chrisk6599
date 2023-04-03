@@ -25,7 +25,6 @@
         readonly
       />
       <Button @click="increase(item)">+</Button>
-      <Button @click="addToCart(item, index)">Add to Cart</Button>
     </div>
   </div>
 </template>
@@ -38,13 +37,6 @@ export default {
     Button,
   },
   methods: {
-    addToCart: function (item, index) {
-      let testing = `.quantityItems${index}`;
-      item.count = item.count + Number(document.querySelector(testing).value);
-
-      document.querySelector(testing).value = 0;
-    },
-
     checkItem: function (cartItems, index) {
       if (cartItems.count == 0) {
         this.shoppingCart.splice(index, 1);
@@ -94,18 +86,42 @@ export default {
       visibility: false,
       items: [
         {
-          name: "Rock1",
+          name: "Boulder",
           image:
-            "https://outforia.com/wp-content/uploads/2021/07/Types-of-rocks-quartzite-0721.jpg",
-          price: 0.05,
+            "https://media.istockphoto.com/id/684455306/photo/big-rock.jpg?s=612x612&w=0&k=20&c=x4EvkRacFbGA7i2kanzOFkULh6UWzlHfl4Vb5t3XsaQ=",
+          price: 350,
           count: 0,
           total: 0,
         },
         {
-          name: "Rock2",
+          name: "Crushed Granite",
           image:
-            "https://media.istockphoto.com/id/1159941628/photo/light-yellow-brown-stone-on-a-white-background.jpg?s=612x612&w=0&k=20&c=Bz9NI4dMHiJuAZK2F8zLWLS-przi4N27eQXRcq-0YF0=",
-          price: 13,
+            "https://media.istockphoto.com/id/684455306/photo/big-rock.jpg?s=612x612&w=0&k=20&c=x4EvkRacFbGA7i2kanzOFkULh6UWzlHfl4Vb5t3XsaQ=",
+          price: 87.5,
+          count: 0,
+          total: 0,
+        },
+        {
+          name: "Crushed Limestone",
+          image:
+            "https://www.braenstone.com/wp-content/uploads/2021/06/open-graded-1-1-2-crushed-limestone-1264x1264.jpg",
+          price: 25,
+          count: 0,
+          total: 0,
+        },
+        {
+          name: "Lava Rock",
+          image:
+            "https://eadn-wc01-7017865.nxedge.io/cdn/media/catalog/product/cache/56479904931fb76a498cfc2b7870f50d/g/e/ge-lrs-a-08-20.jpg",
+          price: 167.5,
+          count: 0,
+          total: 0,
+        },
+        {
+          name: "Pea Gravel",
+          image:
+            "https://texasgardenmaterials.com/wp-content/uploads/2018/08/pea-gravel-rock-sugar-land-tx-77498.jpg",
+          price: 37.5,
           count: 0,
           total: 0,
         },
