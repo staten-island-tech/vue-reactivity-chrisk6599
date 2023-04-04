@@ -135,12 +135,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+div {
+  border: solid black;
+}
+
 img {
   width: 10rem;
 }
 
-#flexDiv {
+bigDiv {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -155,12 +159,5 @@ img {
 }
 .test {
   justify-content: space-evenly;
-}
-
-.cardDiv {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
 }
 </style>
