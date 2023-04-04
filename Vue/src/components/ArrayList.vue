@@ -13,18 +13,20 @@
       <div>Total: ${{ finalTotal.toFixed(2) }}</div>
     </div>
 
-    <div v-for="(item, index) in items" class="test">
-      <p>{{ item.name }}</p>
-      <img v-bind:src="item.image" />
-      <p>${{ item.price }}</p>
-      <Button @click="decrease(item)">-</Button>
-      <input
-        type="text"
-        :class="classCreation(index)"
-        v-bind:value="item.count"
-        readonly
-      />
-      <Button @click="increase(item)">+</Button>
+    <div class="cardDiv">
+      <div v-for="(item, index) in items" class="test">
+        <p>{{ item.name }}</p>
+        <img v-bind:src="item.image" />
+        <p>${{ item.price }}</p>
+        <Button @click="decrease(item)">-</Button>
+        <input
+          type="text"
+          :class="classCreation(index)"
+          v-bind:value="item.count"
+          readonly
+        />
+        <Button @click="increase(item)">+</Button>
+      </div>
     </div>
   </div>
 </template>
@@ -134,6 +136,10 @@ export default {
 </script>
 
 <style scoped>
+img {
+  width: 10rem;
+}
+
 #flexDiv {
   display: flex;
   flex-direction: row;
@@ -148,6 +154,13 @@ export default {
   width: 100px;
 }
 .test {
+  justify-content: space-evenly;
+}
+
+.cardDiv {
   margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 </style>
