@@ -1,32 +1,33 @@
 <template>
-  <div id="flexDiv">
+  <section>
     <Button @click="display()">Click</Button>
     <div id="bigDiv" style="display: none">
-      <div class="output" v-for="(cartItems, index) in shoppingCart">
+      <div id="output" v-for="(cartItems, index) in shoppingCart">
         {{ checkItem(cartItems, index) }}
         <p>{{ cartItems.name }}</p>
         <p>${{ cartItems.price }}</p>
         <p>Quantity: {{ cartItems.count }}</p>
-        <p>Total: ${{ cartItems.total.toFixed(2) }}</p>
-        <img v-bind:src="cartItems.image" class="cool" />
+        <p>Total: ${{ cartItems.total }}</p>
+        <img v-bind:src="cartItems.image" id="imagePopup" />
       </div>
-      <div>Total: ${{ finalTotal.toFixed(2) }}</div>
+      <div v-if="(this.innerHTML = ``)">Total: ${{ finalTotal }}</div>
     </div>
+  </section>
 
-    <div class="cardDiv">
-      <div v-for="(item, index) in items" class="test">
-        <p>{{ item.name }}</p>
-        <img v-bind:src="item.image" />
-        <p>${{ item.price }}</p>
-        <Button @click="decrease(item)">-</Button>
-        <input
-          type="text"
-          :class="classCreation(index)"
-          v-bind:value="item.count"
-          readonly
-        />
-        <Button @click="increase(item)">+</Button>
-      </div>
+  <div id="cardDiv">
+    <div v-for="(item, index) in items">
+      <p>{{ item.name }}</p>
+      <img v-bind:src="item.image" />
+      <p>${{ item.price }}</p>
+      <Button id="buttonIncrement" @click="decrease(item)">-</Button>
+      <input
+        id="numericalDisplay"
+        type="text"
+        :class="classCreation(index)"
+        v-bind:value="item.count"
+        readonly
+      />
+      <Button id="buttonIncrement" @click="increase(item)">+</Button>
     </div>
   </div>
 </template>
@@ -40,6 +41,7 @@ export default {
   },
   methods: {
     checkItem: function (cartItems, index) {
+      console.log(cartItems.count);
       if (cartItems.count == 0) {
         this.shoppingCart.splice(index, 1);
       }
@@ -98,7 +100,7 @@ export default {
         {
           name: "Crushed Granite",
           image:
-            "https://media.istockphoto.com/id/684455306/photo/big-rock.jpg?s=612x612&w=0&k=20&c=x4EvkRacFbGA7i2kanzOFkULh6UWzlHfl4Vb5t3XsaQ=",
+            "https://sdrocksupply2.flywheelsites.com/wp-content/uploads/2020/11/Crushed-Granite-0.375-inch-1000-x-1000.jpg",
           price: 87.5,
           count: 0,
           total: 0,
@@ -135,29 +137,26 @@ export default {
 };
 </script>
 
-<style>
-div {
-  border: solid black;
+<style scoped>
+#buttonIncrement,
+#numericalDisplay {
+  width: 3rem;
+  font-size: 1rem;
+}
+
+#cardDiv {
+  width: 50%;
 }
 
 img {
   width: 10rem;
 }
 
-bigDiv {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.output {
+#output {
   font-size: 10px;
 }
 
-.cool {
-  width: 100px;
-}
-.test {
-  justify-content: space-evenly;
+#imagePopup {
+  width: 2rem;
 }
 </style>

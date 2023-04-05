@@ -19,14 +19,16 @@ export default {
 </script>
 
 <template>
-  <div class="home">
-    <!-- <Card
+  <!-- <Card
       title="ArrayList"
       description="Hi"
       image="https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png"
     ></Card> -->
-    <ArrayList></ArrayList>
-  </div>
+  <ArrayList></ArrayList>
 </template>
 
-<style></style>
+<style>
+#app {
+  width: 100%;
+}
+</style>
