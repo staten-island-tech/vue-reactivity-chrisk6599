@@ -51,6 +51,10 @@ export default {
   text-align: center;
 }
 
+#rightDiv::-webkit-scrollbar {
+  display: none;
+}
+
 header {
   text-align: center;
   font-size: 4rem;
