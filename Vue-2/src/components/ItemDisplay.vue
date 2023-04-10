@@ -12,13 +12,16 @@
       readonly
     />
     <Button id="buttonIncrement" @click="increase(className)">+</Button>
-    <Button @click="addToCart(className, name)">Add to Cart</Button>
+    <br />
+    <Button id="addToCartButton" @click="addToCart(className, name)"
+      >Add to Cart</Button
+    >
   </div>
 </template>
 
 <script>
 import Button from "./Button.vue";
-import ShoppingCart from "./ShoppingCart.vue";
+import { shoppingCart } from "./ShoppingCart.vue";
 
 export default {
   name: "ItemDisplay",
@@ -43,26 +46,24 @@ export default {
     },
 
     addToCart(className, name) {
-      let matched = ShoppingCart.shoppingCart.filter(
-        (element) => element.name === name
-      );
+      let matched = shoppingCart.filter((element) => element.name === name);
       if (matched.length == 0) {
-        ShoppingCart.shoppingCart.push({
+        shoppingCart.push({
           name: this.name,
           image: this.image,
           price: this.price,
           count: Number(document.querySelector(`.${className}`).value),
         });
       } else {
-        ShoppingCart.shoppingCart.forEach(function (element, index) {
-          console.log(element);
+        shoppingCart.forEach(function (element, index) {
           if (element.name == name) {
-            ShoppingCart.shoppingCart[index].count += Number(
+            shoppingCart[index].count += Number(
               document.querySelector(`.${className}`).value
             );
           }
         });
       }
+      document.querySelector(`.${className}`).value = 0;
     },
   },
 };
@@ -72,12 +73,22 @@ export default {
 #individualCard {
   border: solid black;
   padding: 2rem;
+  width: 30%;
 }
 
 #buttonIncrement,
 #numericalDisplay {
   width: 2rem;
   height: 2rem;
+  text-align: center;
+  vertical-align: middle;
+  margin-top: 0.5rem;
+}
+
+img,
+h3,
+#addToCartButton {
+  margin-top: 0.5rem;
 }
 
 img {

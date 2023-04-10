@@ -10,6 +10,7 @@
 
 <script>
 import ItemDisplay from "./ItemDisplay.vue";
+import { shoppingCart } from "./ShoppingCart.vue";
 export default {
   name: "Card",
   components: {
@@ -25,34 +26,74 @@ export default {
       visibility: false,
       items: [
         {
-          name: "Boulder",
-          image:
-            "https://media.istockphoto.com/id/684455306/photo/big-rock.jpg?s=612x612&w=0&k=20&c=x4EvkRacFbGA7i2kanzOFkULh6UWzlHfl4Vb5t3XsaQ=",
-          price: 350,
+          name: "Hydrogen",
+          image: "https://energyeducation.ca/wiki/images/8/88/HYDROGEN.png",
+          price: 1.39,
         },
         {
-          name: "Crushed Granite",
+          name: "Helium",
           image:
-            "https://sdrocksupply2.flywheelsites.com/wp-content/uploads/2020/11/Crushed-Granite-0.375-inch-1000-x-1000.jpg",
-          price: 87.5,
+            "https://energyeducation.ca/wiki/images/thumb/f/f0/HELIUM.png/200px-HELIUM.png",
+          price: 24,
         },
         {
-          name: "Crushed Limestone",
+          name: "Lithium",
           image:
-            "https://www.braenstone.com/wp-content/uploads/2021/06/open-graded-1-1-2-crushed-limestone-1264x1264.jpg",
-          price: 25,
+            "https://media.istockphoto.com/id/654559838/vector/lithium-periodic-table-element-gray-icon-on-white-background-vector.jpg?s=612x612&w=0&k=20&c=Z4esXSRFufmrVOYc6fYlU1EuqTZgRuEyHhj_xGzUZtc=",
+          price: 81.49,
         },
         {
-          name: "Lava Rock",
-          image:
-            "https://eadn-wc01-7017865.nxedge.io/cdn/media/catalog/product/cache/56479904931fb76a498cfc2b7870f50d/g/e/ge-lrs-a-08-20.jpg",
-          price: 167.5,
+          name: "Beryllium",
+          image: "https://energyeducation.ca/wiki/images/a/a2/Be.png",
+          price: 857,
         },
         {
-          name: "Pea Gravel",
+          name: "Boron",
           image:
-            "https://texasgardenmaterials.com/wp-content/uploads/2018/08/pea-gravel-rock-sugar-land-tx-77498.jpg",
-          price: 37.5,
+            "https://previews.123rf.com/images/tony4urban/tony4urban1801/tony4urban180100040/93637645-boron-chemical-element-periodic-table-science-symbol.jpg",
+          price: 3.69,
+        },
+        {
+          name: "Carbon",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCjW-YJbcFs0Gp0-lGrMRKpzQ6j2Qhhj3RwA&usqp=CAU",
+          price: 0.13,
+        },
+        {
+          name: "Nitrogen",
+          image:
+            "https://previews.123rf.com/images/tony4urban/tony4urban1801/tony4urban180100109/93551403-nitrogen-chemical-element-periodic-table-science-symbol.jpg",
+          price: 0.14,
+        },
+        {
+          name: "Oxygen",
+          image:
+            "https://media.istockphoto.com/id/1195265997/vector/oxygen-periodic-table-of-the-elements-vector-illustration-eps-10.jpg?s=612x612&w=0&k=20&c=PSXxj37WQQVxZLLoGQg6q11Wi1GSbsd1go-QU9dcpvw=",
+          price: 0.15,
+        },
+        {
+          name: "Fluorine",
+          image:
+            "https://previews.123rf.com/images/tony4urban/tony4urban1801/tony4urban180100124/93521580-fluorine-chemical-element-periodic-table-science-symbol.jpg",
+          price: 1.84,
+        },
+        {
+          name: "Neon",
+          image:
+            "https://previews.123rf.com/images/tony4urban/tony4urban1801/tony4urban180100058/93545718-neon-chemical-element-periodic-table-science-symbol.jpg",
+          price: 240,
+        },
+        {
+          name: "Sodium",
+          image:
+            "https://thumbs.dreamstime.com/b/sodium-periodic-table-elements-vector-illustration-eps-161995316.jpg",
+          price: 2.57,
+        },
+        {
+          name: "Magnesium",
+          image:
+            "https://thumbs.dreamstime.com/b/magnesium-periodic-table-elements-vector-illustration-eps-161995152.jpg",
+          price: 2.32,
         },
       ],
       finalTotal: 0,
@@ -63,11 +104,7 @@ export default {
 
 <style scoped>
 * {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-
   margin: 0rem 0rem 2rem 2rem;
+  text-align: center;
 }
 </style>
