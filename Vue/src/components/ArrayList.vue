@@ -3,14 +3,13 @@
     <Button @click="display()">Click</Button>
     <div id="bigDiv" style="display: none">
       <div id="output" v-for="(cartItems, index) in shoppingCart">
-        {{ checkItem(cartItems, index) }}
         <p>{{ cartItems.name }}</p>
         <p>${{ cartItems.price }}</p>
         <p>Quantity: {{ cartItems.count }}</p>
         <p>Total: ${{ cartItems.total }}</p>
         <img v-bind:src="cartItems.image" id="imagePopup" />
       </div>
-      <div v-if="(this.innerHTML = ``)">Total: ${{ finalTotal }}</div>
+      <div>Total: ${{ finalTotal }}</div>
     </div>
   </section>
 
@@ -19,7 +18,7 @@
       <p>{{ item.name }}</p>
       <img v-bind:src="item.image" />
       <p>${{ item.price }}</p>
-      <Button id="buttonIncrement" @click="decrease(item)">-</Button>
+      <Button id="buttonIncrement" @click="decrease(item, index)">-</Button>
       <input
         id="numericalDisplay"
         type="text"
@@ -40,13 +39,6 @@ export default {
     Button,
   },
   methods: {
-    checkItem: function (cartItems, index) {
-      console.log(cartItems.count);
-      if (cartItems.count == 0) {
-        this.shoppingCart.splice(index, 1);
-      }
-    },
-
     increase: function (item) {
       item.count++;
       item.total = item.total + item.price;
@@ -60,7 +52,7 @@ export default {
       }
     },
 
-    decrease: function (item) {
+    decrease: function (item, index) {
       let matched = this.shoppingCart.filter(
         (element) => element.name === item.name
       );
@@ -68,6 +60,10 @@ export default {
         item.count -= 1;
         item.total = item.total - item.price;
         this.finalTotal = this.finalTotal - item.price;
+      }
+
+      if (item.count == 0) {
+        this.shoppingCart.splice(index, 1);
       }
     },
 

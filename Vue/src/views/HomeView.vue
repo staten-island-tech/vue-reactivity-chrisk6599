@@ -8,12 +8,6 @@ export default {
     Button,
     ArrayList,
   },
-  // hi: function () {
-  //   console.log("hi");
-  // },
-  // bye: function () {
-  //   console.log("bye");
-  // },
   methods: {},
 };
 </script>
